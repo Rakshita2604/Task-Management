@@ -1,0 +1,29 @@
+/* Add your custom styles here */
+#auth-section {
+    display: none;
+}
+
+#task-section {
+    display: none;
+}
+/* Apply Bootstrap styles to your HTML elements */
+.container {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}

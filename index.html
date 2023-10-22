@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.5.0/css/bootstrap.min.css">
+    <!-- Include Bootstrap's CSS from a CDN -->
+
+    <link rel="stylesheet" href="styles.css"> <!-- Custom CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Task Management App</h1>
+        <div id="auth-section">
+            <form id="login-form">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" class="form-control">
+                </div>
+                <button type="button" id="login-button" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+        <div id="task-section">
+            <h2>Tasks</h2>
+            <ul id="task-list" class="list-group">
+                <!-- Task items will be added here dynamically -->
+            </ul>
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="title">Task Title:</label>
+                    <input type="text" id="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="description">Task Description:</label>
+                    <input type="text" id="description" class="form-control">
+                </div>
+                <button type="button" id="create-task" class="btn btn-success">Create Task</button>
+            </form>
+        </div>
+    </div>
+
+    // Include Socket.io on your HTML file
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    const socket = io();
+
+    // Example: Emit a 'taskCreated' event when a new task is created
+    socket.emit('taskCreated', { title: 'New Task', description: 'Task description' });
+
+    // Example: Listen for the 'newTask' event to receive real-time updates
+    socket.on('newTask', (task) => {
+    // Handle the new task (e.g., update the UI)
+    console.log('New task created:', task);
+    });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include Bootstrap's JavaScript from a CDN -->
+    <script src="/socket.io/socket.io.js"></script> <!-- Include Socket.io client -->
+    <script src="app.js"></script> <!-- Your custom JavaScript file -->
+</body>
+</html>
+
+
+
+
+
